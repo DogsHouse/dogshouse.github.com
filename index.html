@@ -1,0 +1,571 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>小狗之家</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-1.11.0.min.js"></script>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link rel="stylesheet" type="text/css" href="css/style1.css" />
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--Google Fonts-->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Rambla:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+	</script>
+<!-- //end-smoth-scrolling -->
+<script type="text/javascript" src="js/modernizr.custom.js"></script> 
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<script src="js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<!--banner strat here-->
+<div class="banner">
+	<div class="container">
+		<div class="banner-main">
+			<!-- <div class="banner-text">
+				<a href="index.html"><div class="logo">
+					<h1>小狗之家</h1>
+					<p>快来把我领走.</p>
+				</div></a>			 
+			</div> -->
+			
+			<font size="20" color="white">小狗之家</font> 
+			<h3>基于星云链的首款可领养、喂养小奶狗且玩家可留言互动的游戏。</h3>
+		</div>
+	</div>
+</div>
+
+<!--baner end here-->
+<!--header start here-->
+<div class="header-bottom">
+  <div class="fixed-header">	
+	<div class="container">
+		<div class="header-main">
+			<div class="header-left">
+				<h2><a href="index.html">小狗之家</a></h2>
+			</div>
+			<div class="header-right">					
+				  <div class="top-nav">
+					<span class="menu"><img src="images/menu.png" alt=""/></span>
+					<ul class="nav1">
+						
+						<li><a href="index.html" class="active">首页</a></li>
+						<li><a class="scroll" href="#about">关于</a></li>
+						<li class="content_show" style="display: none;"><a class="scroll" href="#package">带走小狗</a></li>
+						<li class="content_show" style="display: none;"><a class="scroll" href="#myAnimal">我的小狗</a></li>
+						<li class="content_show" style="display: none;"><a class="scroll" href="#sendDog" >小狗主互动</a></li>
+					</ul>	
+					<!-- script-for-menu -->
+					 <script>
+					   $( "span.menu" ).click(function() {
+						 $( "ul.nav1" ).slideToggle( 300, function() {
+						 // Animation complete.
+						  });
+						 });
+					</script>
+					<!-- /script-for-menu -->
+					<!-- script-for sticky-nav -->
+		<script>
+		$(document).ready(function() {
+			 var navoffeset=$(".header-bottom").offset().top;
+			 $(window).scroll(function(){
+				var scrollpos=$(window).scrollTop(); 
+				if(scrollpos >=navoffeset){
+					$(".header-bottom").addClass("fixed");
+				}else{
+					$(".header-bottom").removeClass("fixed");
+				}
+			 });
+			 
+		});
+		</script>
+		<!-- /script-for sticky-nav -->
+				</div>
+			 </div>
+			</div>
+		  <div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!--header end here-->
+<!--About strat here-->
+<div class="about" id="about">
+	<div class="container">
+		<div class="about-main">
+			 <h3>关于</h3>
+			<div class="col-md-6 about-left">
+				<img src="images/a1.png" alt="" class="img-responsive">
+			</div>
+			<div class="col-md-6 about-right">
+				<p>小狗之家是一款基于星云链的养小奶狗游戏，玩家可以购买小奶狗，通过喂养食物、写心情为来驯养小奶狗，每位玩家只可以拥有一只小奶狗，代表要对小奶狗钟爱无比。 每只小奶狗吃一根骨头要1个小时，小奶狗要吃够10根骨头才能长大成小狗。喂养小奶狗时写下的感想均会被永远记录在区块链上，成为永远的回忆。</p>	
+				<br>
+				<p>本游戏主要为驯养小奶狗，在喂养的过程中分享自己的故事，在星云链上记录下你人生中一些美好、难忘的时刻。同时在小奶狗主互动区可以看到狗主们喂养时最新的动态。</p>
+				<br>
+				<p>
+	                <div class="noExtensionClass" style="display:none" id="noExtension">
+	                请安装 
+	                <a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a> 
+	                激活Dapp的功能。
+	                </div>  
+              	</p>
+			</div>
+		  <div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!--About text end here-->
+<!--pets show strat here-->
+<div class="pets-show">
+	<div class="container">
+		<section class="slider">
+		 <div class="flexslider">
+			<ul class="slides">
+			  <li>
+			  	<div class="pets-show-main">
+					<div class="col-md-6 pets-show-left">
+						<h3>小狗狗</h3>
+						<h4>其实我很可爱</h4>
+						<p>灵活、胖乎乎、毛茸茸、温和、四蹄生风</p>
+					</div>
+					<div class="col-md-6 pets-show-right">
+						<img src="images/p2.png" alt="" class="img-responsive">
+					</div>
+				 <div class="clearfix"> </div>
+				</div>
+			  </li>
+			  <li>
+			 	<div class="pets-show-main">
+					<div class="col-md-6 pets-show-left">
+						<h3>小狗狗</h3>
+						<h4>其实我很善良</h4>
+						<p>欢蹦乱跳、快马加鞭、摇头摆尾、活泼可爱</p>
+					</div>
+					<div class="col-md-6 pets-show-right">
+						<img src="images/p4.png" alt="" class="img-responsive">
+					</div>
+				  <div class="clearfix"> </div>
+				</div>
+			  </li>
+			  <li>
+			 	<div class="pets-show-main">
+					<div class="col-md-6 pets-show-left">
+						<h3>小狗狗</h3>
+						<h4>其实我很活泼</h4>
+						<p>淘气、嬉闹、灵巧、灵敏</p>
+					</div>
+					<div class="col-md-6 pets-show-right">
+						<img src="images/p5.png" alt="" class="img-responsive">
+					</div>
+				 <div class="clearfix"> </div>
+				</div>
+			  </li>
+		    </ul>
+		 </div>
+	  </section>
+	</div>
+</div>
+<!--pets show end here-->
+<!-- FlexSlider -->
+				  <script defer src="js/jquery.flexslider.js"></script>
+				  <script type="text/javascript">
+					$(function(){
+					 
+					});
+					$(window).load(function(){
+					  $('.flexslider').flexslider({
+						animation: "slide",
+						start: function(slider){
+						  $('body').removeClass('loading');
+						}
+					  });
+					});
+				  </script>
+			<!-- FlexSlider -->
+
+<!-- 注册领养 --> 
+<div class="services" id="package">
+	<div class="content_show" style="display: none;">
+		<div class="container">
+		<div class="about-main">
+			<h3 align="center">带走小狗</h3>
+			<p align="center">登记成功后，玩家可以领取小奶狗一只</p>
+			<label for="exampleInputEmail1" >姓名</label>
+             <input type="text" class="form-control" id="name" />
+            </br>
+             <label for="exampleInputEmail1" >手机号码</label>
+             <input type="text" class="form-control" id="phoneNum" />
+			</br>
+            <div align="center">
+            <button class="btn btn-default btn-block btn-lg" id="setRegister">登记</button>
+            </div>
+			</br>
+            <div align="center">
+            <!-- <button class="btn btn-default btn-lg" >注册</button> -->
+            	<button class="btn btn-default btn-block btn-lg" id="setAdopt">带走小奶狗</button>
+            </div>
+            <br>
+           <div>登记后输入手机号码即可带走小奶狗</div>
+    </div>
+	</div>
+
+
+</div>
+
+<!-- 我的小狗 -->
+<div class="gallery" id="myAnimal">
+	<div class="content_show" style="display: none;">
+			<div class="container">
+		<div class="about-main">
+			<h3>我的小狗</h3>
+			<div class="col-md-6 about-left">
+				<img src="images/p2.png" alt="" class="img-responsive">
+			</div>
+			<div class="col-md-6 about-right">
+			<!-- 	<h4>Nemo enim ipsam voluptatem</h4>
+				<h5>Temporibus autem</h5> -->
+				<p id="game_get_content">喂养心情记录</p>	
+				<br>	
+
+				<div class="row clearfix">
+					<div class="col-md-8 column">
+					<input type="text" class="form-control" id="game_phoneNum" placeholder="搜索我的小狗" />
+					</div>
+					<div class="col-md-4 column">
+						<div id="getInfo">
+							<img src="images/search.png" > 搜索
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="row clearfix">
+					<div class="col-md-8 column">
+					<input type="text" class="form-control" id="game_content" placeholder="此刻喂养的心情" />
+					</div>
+					<div class="col-md-4 column">
+						<div id="setFeed">
+							<img src="images/feed.png" > 喂养
+						</div>
+					</div>
+				</div>
+ 			</div>
+		  <div class="clearfix"> </div>
+		</div>
+	</div>
+	</div>
+</div>
+
+<!-- 互动墙 -->
+<div class="contact" id="sendDog">
+	<div class="content_show" style="display: none;">
+		<div class="container">
+		<div class="about-main">
+		   <h3>小狗主互动</h3>
+			<p id="playerWords"></p>
+			<div id="first_index" style="display: none;">null</div>
+			<br><br>
+			<button class="btn btn-default btn-block btn-lg" id="getMessage" >拉取最新玩家留言</button>
+		  <div class="clearfix"> </div>
+		</div>
+	</div>
+	</div>
+</div>
+
+<!--footer strat here-->
+<div class="footer">
+		<div class="container">
+
+			<div class="footer-text">			
+				<div class="ft-right">
+
+					<div class="copyright py-4 text-center text-white">
+			        <img src="./images/logo_white.png" width="180" height="60">
+			       <div style="color: white">基于星云链的小狗之家 <a href="mailto:rickliu414149871@gmail.com">联系我</a></div> 
+			       </div>
+
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+</div>
+
+<script src="./dist/nebulas.js"></script>
+<script src="./dist/nebPay.js"></script>
+
+<!-- 判断是否安装钱包 -->
+<script type="text/javascript">
+	if (typeof(webExtensionWallet) == 'undefined') {
+		$(".noExtensionClass").show();
+	} else {
+		$(".content_show").show();
+	}
+</script>
+
+<script>
+"use strict";
+	var dappAddress = "n1nWiSjVL4VFfgwfXNqoX2huSu7Fi6xehs5";    //主网
+	 var nebulas = require("nebulas"),
+        Account = nebulas.Account,
+        neb = new nebulas.Neb();
+        
+    neb.setRequest(new nebulas.HttpRequest("https://mainnet.nebulas.io"));
+    // neb.setRequest(new nebulas.HttpRequest("https://testnet.nebulas.io"));
+
+    $("#getInfo").click(function() {
+    	//首先清空 game 中的 p 标签内所有元素
+    	$("#game_get_content").empty(); 
+    	// $(".playerExistClass").hide();
+
+    	var from = Account.NewAccount().getAddressString();
+    	var value = "0";
+    	var nonce = "0";
+    	var gas_price = "1000000";
+    	var gas_limit = "2000000";
+    	var callFunction = "get";
+    	var key = document.getElementById('game_phoneNum').value;
+ 		var callArgs = "[\"" + key +"\"]";
+ 		var contract = {
+ 			"function": callFunction,
+ 			"args": callArgs,
+ 		}
+
+ 		neb.api.call(from,dappAddress,value,nonce,gas_price,gas_limit,contract).then(function(resp){
+ 			cbSearch(resp);
+ 		}).catch(function(err){
+ 			console.log("error: " + err.message);
+ 		})
+    })
+
+    //return of search
+    function cbSearch(resp) {
+        var result = resp.result;
+        console.log("result = " + result);
+
+        var obj = JSON.parse(result);
+        // if (result == 'null') {
+        // 	document.getElementById('playerExist').innerHTML = "该玩家不存在"
+        // 	$(".playerExistClass").show();
+        // 	return;
+        // }
+
+        //处理文本
+        // game_get_content
+        var content = obj.content;
+        var contentArray = content.split('-.-.-');
+        for (var i = 0; i < contentArray.length; i++) {
+        	if (i != 0) {
+        		console.log('contentArray[i] = '+ contentArray[i]);
+        		//在便签中创建新的标签
+        		var p = document.getElementById('game_get_content')
+        		var pChild = document.createElement("p");     //创建一个p元素 
+
+                pChild.innerHTML = contentArray[i]; 
+        		p.appendChild(pChild);
+        	}
+        }
+    }
+
+    $("#getMessage").click(function() {
+
+    	var offset = 0;
+    	var first_index = document.getElementById('first_index').innerHTML;
+        if (first_index == 'null') {
+            offset = 0;
+        } else {
+            offset = parseInt(first_index) + 1 ;
+        }
+    	var from = Account.NewAccount().getAddressString();
+    	var value = "0";
+    	var nonce = "0";
+    	var gas_price = "1000000";
+    	var gas_limit = "2000000";
+    	var callFunction = "getMessage"; 
+ 		var callArgs = "[\"" + 10 + "\",\"" + offset +"\"]";
+ 		var contract = {
+ 			"function": callFunction,
+ 			"args": callArgs,
+ 		}
+
+ 		neb.api.call(from,dappAddress,value,nonce,gas_price,gas_limit,contract).then(function(resp){
+ 			getMessageSearch(resp);
+ 		}).catch(function(err){
+ 			console.log("error: " + err.message);
+ 		})
+    })
+
+    function getMessageSearch(resp) {
+    	console.log(resp.result);
+    	var objectArray = JSON.parse(resp.result);
+    	objectArray = JSON.parse(objectArray);
+    	for (var i = 0; i < objectArray.length; i++) {
+    		var content = objectArray[i]["content"];
+    		console.log("content = " + content);
+    		//在便签中创建新的标签
+    		var p = document.getElementById("playerWords");
+    		var pChild = document.createElement("p");		//创建一个 p 元素
+    		pChild.innerHTML = content;
+    		p.appendChild(pChild);
+    	}
+    }
+
+        //NebPay
+    var NebPay = require("nebpay");
+    var nebPay = new NebPay();    
+    var serialNumber; //交易序列号
+    var intervalQuery; //定时查询交易结果
+
+    //等级
+    $("#setRegister").click(function() {
+    	var to = dappAddress;   //Dapp的合约地址
+        var value = "0";
+        var callFunction = "set" //调用的函数名称
+        var key = document.getElementById('phoneNum').value;
+        var content = document.getElementById('name').value;
+        var callArgs =  "[\"" + key + "\",\"" + content + "\"]";  //参数格式为参数数组的JSON字符串
+
+        var options = {
+        	//callback 是交易查询服务器地址,
+        	callback: NebPay.config.mainnetUrl //在主网查询(默认值)
+        	// callback: NebPay.config.testnetUrl    //在测试网查询
+        }
+
+        //发送交易(发起智能合约调用)
+        serialNumber = nebPay.call(to, value, callFunction, callArgs, options);
+
+        //设置定时查询交易结果
+        intervalQuery = setInterval(function() {
+        	funcIntervalQuery();
+        },10000);	//建议查询频率10-15s,因为星云链出块时间为15s,并且查询服务器限制每分钟最多查询10次。
+    })
+
+    //领取小狗
+    $("#setAdopt").click(function() {
+    	var to = dappAddress;   //Dapp的合约地址
+        var value = "0";
+        var callFunction = "setAdopt" //调用的函数名称
+        var key = document.getElementById('phoneNum').value;
+        var content = Date.parse(new Date());
+        var callArgs =  "[\"" + key + "\",\"" + content + "\"]";  //参数格式为参数数组的JSON字符串
+
+        var options = {
+        	//callback 是交易查询服务器地址,
+        	callback: NebPay.config.mainnetUrl //在主网查询(默认值)
+        	// callback: NebPay.config.testnetUrl    //在测试网查询
+        }
+
+        //发送交易(发起智能合约调用)
+        serialNumber = nebPay.call(to, value, callFunction, callArgs, options);
+
+        //设置定时查询交易结果
+        intervalQuery = setInterval(function() {
+        	funcIntervalQuery();
+        },10000);	//建议查询频率10-15s,因为星云链出块时间为15s,并且查询服务器限制每分钟最多查询10次。
+    })
+
+    //喂养
+    $("#setFeed").click(function() {
+
+    	var to = dappAddress;   //Dapp的合约地址
+        var value = "0";
+        var callFunction = "setFeed" //调用的函数名称
+        var key = document.getElementById('game_phoneNum').value;
+        var content = document.getElementById('game_content').value;
+        var waterTime = Date.parse(new Date());
+        var callArgs =  "[\"" + key +"\",\"" + content + "\",\""+ waterTime + "\"]";  //参数格式为参数数组的JSON字符串
+
+        var options = {
+        	//callback 是交易查询服务器地址,
+        	callback: NebPay.config.mainnetUrl //在主网查询(默认值)
+        	// callback: NebPay.config.testnetUrl    //在测试网查询
+        }
+
+        //发送交易(发起智能合约调用)
+        serialNumber = nebPay.call(to, value, callFunction, callArgs, options);
+
+        //设置定时查询交易结果
+        intervalQuery = setInterval(function() {
+        	funcIntervalQuery();
+        },10000);	//建议查询频率10-15s,因为星云链出块时间为15s,并且查询服务器限制每分钟最多查询10次。
+
+    })
+
+    //查询交易结果。queryPayInfo 返回的是一个 Promise 对象
+    function funcIntervalQuery() {
+
+    	var options = {
+    		//callback 是交易查询服务器地址,
+    		callback: NebPay.config.mainnetUrl  //在主网查询(默认值)
+    		// callback: NebPay.config.testnetUrl     //在测试网查询
+    	}
+
+    	//queryPayInfo的options参数用来指定查询交易的服务器地址,(如果是主网可以忽略,因为默认服务器是在主网查询)
+    	nebPay.queryPayInfo(serialNumber, options)	//search transaction result from server (result upload to server by app)
+    		.then(function(resp) {
+    			console.log("tx result: " + resp)
+    			var respObject = JSON.parse(resp)
+    			//code==0 交易发送成功,status==交易已被打包上链
+    			if (respObject.code === 0 && respObject.data.status === 1) {
+    				//交易成功,处理后续任务...
+    				console.log("交易成功,处理后续任务...");
+    				clearInterval(intervalQuery)	//清除定时查询
+    			}
+    		})
+    		.catch(function(err) {
+    			console.log(err);
+    		})
+    }
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
