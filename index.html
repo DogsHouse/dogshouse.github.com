@@ -381,7 +381,8 @@
     }
 
     $("#getMessage").click(function() {
-
+    	//先清空 playerWords 中的 p 标签内所有元素
+    	$("#playerWords").empty();
     	var offset = 0;
     	var first_index = document.getElementById('first_index').innerHTML;
         if (first_index == 'null') {
@@ -534,38 +535,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
