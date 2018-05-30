@@ -295,9 +295,10 @@
 
 					<div class="copyright py-4 text-center text-white">
 			        <img src="./images/logo_white.png" width="180" height="60">
-			       <div style="color: white">基于星云链的小狗之家 <a href="mailto:rickliu414149871@gmail.com">联系我</a></div> 
+			    <!--    <div style="color: white">基于星云链的小狗之家 <a href="mailto:rickliu414149871@gmail.com">联系我</a></div>  -->
+			       	<div style="color: white">Copyright © 2018 小狗之家 <a href="mailto:rickliu414149871@gmail.com">联系我</a></div>
 			       </div>
-
+					
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -318,7 +319,8 @@
 
 <script>
 "use strict";
-	var dappAddress = "n1yUneafLvHJ2HdozrvGy4mCgNsN5Bd3eqd";    //主网
+	var dappAddress = "n1xgjJq6CT5XthBUrMdmYEwVzH1xxYqEyRL";	//主网
+	// var dappAddress = "n1nWiSjVL4VFfgwfXNqoX2huSu7Fi6xehs5";    //主网
 	 var nebulas = require("nebulas"),
         Account = nebulas.Account,
         neb = new nebulas.Neb();
@@ -381,8 +383,7 @@
     }
 
     $("#getMessage").click(function() {
-    	//先清空 playerWords 中的 p 标签内所有元素
-    	$("#playerWords").empty();
+
     	var offset = 0;
     	var first_index = document.getElementById('first_index').innerHTML;
         if (first_index == 'null') {
