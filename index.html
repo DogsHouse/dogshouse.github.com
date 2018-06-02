@@ -125,13 +125,13 @@
 				<p>本游戏主要为驯养小狗，在喂养的过程中分享自己的故事，在星云链上记录下你人生中一些美好、难忘的时刻。同时在小狗主互动区可以看到狗主们喂养时最新的动态。</p>
 				<br>
 				<p>
-				<!-- style="display:none"  -->
-	                <div class="noExtensionClass" id="noExtension">
-	                使用前请安装 
-	                <a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a> 
-	                激活Dapp的功能。
-	                </div>  
-              	</p>
+		            <div class="noExtensionClass"  id="noExtension">
+		            使用前请安装 
+		            <a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a> 
+		            激活Dapp的功能。移动端请安装<a target="_blank" href="https://blog.nebulas.io/2018/05/25/announcement-on-official-app-wallet/">NAS nano 钱包</a>
+		            </div>  
+		         </p>
+
 			</div>
 		  <div class="clearfix"> </div>
 		</div>
@@ -388,9 +388,9 @@
         		//在便签中创建新的标签
         		var p = document.getElementById('game_get_content')
         		var pChild = document.createElement("p");     //创建一个p元素 
-
                 pChild.innerHTML = contentArray[i]; 
-        		p.appendChild(pChild);
+                p.prepend(pChild);
+        		// p.appendChild(pChild);
         	}
         }
     }
