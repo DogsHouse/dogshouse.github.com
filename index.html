@@ -67,9 +67,16 @@
 						
 						<li><a href="index.html" class="active">首页</a></li>
 						<li><a class="scroll" href="#about">关于</a></li>
-						<li class="content_show" style="display: none;"><a class="scroll" href="#package">带走小狗</a></li>
+
+
+						<li class="content_show" ><a class="scroll" href="#package">带走小狗</a></li>
+						<li class="content_show" ><a class="scroll" href="#myAnimal">我的小狗</a></li>
+						<li class="content_show"><a class="scroll" href="#sendDog" >小狗主互动</a></li>
+
+
+						<!-- <li class="content_show" style="display: none;"><a class="scroll" href="#package">带走小狗</a></li>
 						<li class="content_show" style="display: none;"><a class="scroll" href="#myAnimal">我的小狗</a></li>
-						<li class="content_show" style="display: none;"><a class="scroll" href="#sendDog" >小狗主互动</a></li>
+						<li class="content_show" style="display: none;"><a class="scroll" href="#sendDog" >小狗主互动</a></li> -->
 					</ul>	
 					<!-- script-for-menu -->
 					 <script>
@@ -118,8 +125,9 @@
 				<p>本游戏主要为驯养小狗，在喂养的过程中分享自己的故事，在星云链上记录下你人生中一些美好、难忘的时刻。同时在小狗主互动区可以看到狗主们喂养时最新的动态。</p>
 				<br>
 				<p>
-	                <div class="noExtensionClass" style="display:none" id="noExtension">
-	                请安装 
+				<!-- style="display:none"  -->
+	                <div class="noExtensionClass" id="noExtension">
+	                使用前请安装 
 	                <a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a> 
 	                激活Dapp的功能。
 	                </div>  
@@ -200,7 +208,9 @@
 
 <!-- 注册领养 --> 
 <div class="services" id="package">
-	<div class="content_show" style="display: none;">
+
+	<div class="content_show" >
+	<!-- <div class="content_show" style="display: none;"> -->
 		<div class="container">
 		<div class="about-main">
 			<h3 align="center">带走小狗</h3>
@@ -214,12 +224,6 @@
             <div align="center">
             <button class="btn btn-default btn-block btn-lg" id="setRegister">登记</button>
             </div>
-	<!-- 		</br>
-            <div align="center"> 
-            	<button class="btn btn-default btn-block btn-lg" id="setAdopt">带走小狗</button>
-            </div>
-            <br>
-           <div>登记后输入手机号码即可带走小狗</div> -->
     </div>
 	</div>
 
@@ -228,7 +232,8 @@
 
 <!-- 我的小狗 -->
 <div class="gallery" id="myAnimal">
-	<div class="content_show" style="display: none;">
+	<div class="content_show" >
+	<!-- <div class="content_show" style="display: none;"> -->
 			<div class="container">
 		<div class="about-main">
 			<h3>我的小狗</h3>
@@ -243,7 +248,7 @@
 
 				<div class="row clearfix">
 					<div class="col-md-8 column">
-					<input type="text" class="form-control" id="game_phoneNum" placeholder="搜索我的小狗" />
+					<input type="text" class="form-control" id="game_phoneNum" placeholder="输入手机号码搜索我的小狗" />
 					</div>
 					<div class="col-md-4 column">
 						<div id="getInfo">
@@ -271,14 +276,17 @@
 
 <!-- 互动墙 -->
 <div class="contact" id="sendDog">
-	<div class="content_show" style="display: none;">
+	<div class="content_show" >
+	<!-- <div class="content_show" style="display: none;"> -->
 		<div class="container">
 		<div class="about-main">
 		   <h3>小狗主互动</h3>
 			<p id="playerWords"></p>
-			<div id="first_index" style="display: none;">null</div>
+
+			<div id="first_index" ></div>
+			<!-- <div id="first_index" style="display: none;">null</div> -->
 			<br><br>
-			<button class="btn btn-default btn-block btn-lg" id="getMessage" >拉取最新玩家留言</button>
+			<button class="btn btn-default btn-block btn-lg" onclick="getMessage()" >拉取最新玩家留言</button>
 		  <div class="clearfix"> </div>
 		</div>
 	</div>
@@ -314,6 +322,11 @@
 	} else {
 		$(".content_show").show();
 	}
+
+	 window.onload=function(){
+ 
+            getMessage();
+        }
 </script>
 
 <script>
@@ -326,6 +339,7 @@
         
     neb.setRequest(new nebulas.HttpRequest("https://mainnet.nebulas.io"));
     // neb.setRequest(new nebulas.HttpRequest("https://testnet.nebulas.io"));
+    var nasApi = neb.api;
 
     $("#getInfo").click(function() {
     	//首先清空 game 中的 p 标签内所有元素
@@ -348,6 +362,8 @@
  		neb.api.call(from,dappAddress,value,nonce,gas_price,gas_limit,contract).then(function(resp){
  			cbSearch(resp);
  		}).catch(function(err){
+
+ 			document.getElementById('game_get_content').innerHTML = "您尚未登记领养小狗";
  			console.log("error: " + err.message);
  		})
     })
@@ -356,18 +372,16 @@
     function cbSearch(resp) {
         var result = resp.result;
         console.log("result = " + result);
-
         var obj = JSON.parse(result);
-        // if (result == 'null') {
-        // 	document.getElementById('playerExist').innerHTML = "该玩家不存在"
-        // 	$(".playerExistClass").show();
-        // 	return;
-        // }
-
         //处理文本
         // game_get_content
         var content = obj.content;
         var contentArray = content.split('-.-.-');
+
+        if (contentArray.length == 1) { 
+        	document.getElementById('game_get_content').innerHTML = "快来尝试喂养小狗吧";
+        }
+
         for (var i = 0; i < contentArray.length; i++) {
         	if (i != 0) {
         		console.log('contentArray[i] = '+ contentArray[i]);
@@ -381,24 +395,20 @@
         }
     }
 
-    $("#getMessage").click(function() {
+    var limitIndex = 1;
+    function getMessage() {
+    // $("#getMessage").click(function() {
 
     	$("#playerWords").empty();
-
-    	var offset = 0;
-    	var first_index = document.getElementById('first_index').innerHTML;
-        if (first_index == 'null') {
-            offset = 0;
-        } else {
-            offset = parseInt(first_index) + 1 ;
-        }
     	var from = Account.NewAccount().getAddressString();
     	var value = "0";
     	var nonce = "0";
     	var gas_price = "1000000";
     	var gas_limit = "2000000";
-    	var callFunction = "getMessage"; 
- 		var callArgs = "[\"" + 10 + "\",\"" + offset +"\"]";
+    	var callFunction = "getMessage";
+    	var limit = 10 * limitIndex; 
+    	var offset = 0;
+ 		var callArgs = "[\"" + limit + "\",\"" + offset +"\"]";
  		var contract = {
  			"function": callFunction,
  			"args": callArgs,
@@ -409,10 +419,11 @@
  		}).catch(function(err){
  			console.log("error: " + err.message);
  		})
-    })
+    // })
+	}
 
     function getMessageSearch(resp) {
-    	// console.log(resp.result);
+    	console.log(resp.result);
     	var objectArray = JSON.parse(resp.result);
     	objectArray = JSON.parse(objectArray);
     	for (var i = 0; i < objectArray.length; i++) {
@@ -422,11 +433,14 @@
     		var p = document.getElementById("playerWords");
     		var pChild = document.createElement("p");		//创建一个 p 元素
     		pChild.innerHTML = content;
-    		p.appendChild(pChild);
+    		p.prepend(pChild);
+    		// p.appendChild(pChild);
     	}
+    	//增加 limitIndex 
+    	limitIndex += 1;
     }
 
-        //NebPay
+    //NebPay
     var NebPay = require("nebpay");
     var nebPay = new NebPay();    
     var serialNumber; //交易序列号
@@ -442,44 +456,36 @@
         var getTime = Date.parse(new Date());
         var callArgs =  "[\"" + key + "\",\"" + content + "\",\"" + getTime +"\"]";  //参数格式为参数数组的JSON字符串
 
-        var options = {
-        	//callback 是交易查询服务器地址,
-        	callback: NebPay.config.mainnetUrl //在主网查询(默认值)
-        	// callback: NebPay.config.testnetUrl    //在测试网查询
-        }
-
-        //发送交易(发起智能合约调用)
-        serialNumber = nebPay.call(to, value, callFunction, callArgs, options);
-
-        //设置定时查询交易结果
-        intervalQuery = setInterval(function() {
-        	funcIntervalQuery();
-        },10000);	//建议查询频率10-15s,因为星云链出块时间为15s,并且查询服务器限制每分钟最多查询10次。
+        serialNumber = nebPay.call(to, value, callFunction, callArgs, {
+          qrcode: {
+              showQRCode: true
+          },
+          callback: NebPay.config.mainnetUrl, //在主网查询(默认值)
+          // callback: NebPay.config.testnetUrl,    //在测试网查询
+          listener: listener  //set listener for extension transaction result
+      });
     })
 
-    //领取小狗
-    // $("#setAdopt").click(function() {
-    // 	var to = dappAddress;   //Dapp的合约地址
-    //     var value = "0";
-    //     var callFunction = "setAdopt" //调用的函数名称
-    //     var key = document.getElementById('phoneNum').value;
-    //     var content = Date.parse(new Date());
-    //     var callArgs =  "[\"" + key + "\",\"" + content + "\"]";  //参数格式为参数数组的JSON字符串
+    function listener(resp) {
+        console.log("listener resp: " + JSON.stringify(resp))
+        var result = resp;
+        onrefreshClick(result["txhash"])
+    }
 
-    //     var options = {
-    //     	//callback 是交易查询服务器地址,
-    //     	callback: NebPay.config.mainnetUrl //在主网查询(默认值)
-    //     	// callback: NebPay.config.testnetUrl    //在测试网查询
-    //     }
-
-    //     //发送交易(发起智能合约调用)
-    //     serialNumber = nebPay.call(to, value, callFunction, callArgs, options);
-
-    //     //设置定时查询交易结果
-    //     intervalQuery = setInterval(function() {
-    //     	funcIntervalQuery();
-    //     },10000);	//建议查询频率10-15s,因为星云链出块时间为15s,并且查询服务器限制每分钟最多查询10次。
-    // })
+    function onrefreshClick(txhash) {
+      nasApi.getTransactionReceipt({hash: txhash}).then(function(receipt) {
+            console.log("status = " + receipt.status);
+            if (receipt.status == 1) {
+         	  console.log("交易成功,处理后续任务...");
+              clearInterval(intervalQuery)  //清除定时查询
+              alert("领养成功，快来喂养小狗吧!");
+            } else {
+              intervalQuery = setTimeout(() => {
+                onrefreshClick(txhash);
+            }, 1000);    //建议查询频率10-15s,因为星云链出块时间为15s,并且查询服务器限制每分钟最多查询10次。
+            }
+        });
+    }
 
     //喂养
     $("#setFeed").click(function() {
@@ -492,46 +498,36 @@
         var waterTime = Date.parse(new Date());
         var callArgs =  "[\"" + key +"\",\"" + content + "\",\""+ waterTime + "\"]";  //参数格式为参数数组的JSON字符串
 
-        var options = {
-        	//callback 是交易查询服务器地址,
-        	callback: NebPay.config.mainnetUrl //在主网查询(默认值)
-        	// callback: NebPay.config.testnetUrl    //在测试网查询
-        }
-
-        //发送交易(发起智能合约调用)
-        serialNumber = nebPay.call(to, value, callFunction, callArgs, options);
-
-        //设置定时查询交易结果
-        intervalQuery = setInterval(function() {
-        	funcIntervalQuery();
-        },10000);	//建议查询频率10-15s,因为星云链出块时间为15s,并且查询服务器限制每分钟最多查询10次。
-
+        serialNumber = nebPay.call(to, value, callFunction, callArgs, {
+          qrcode: {
+              showQRCode: true
+          },
+          callback: NebPay.config.mainnetUrl, //在主网查询(默认值)
+          // callback: NebPay.config.testnetUrl,    //在测试网查询
+          listener: listenerFeed  //set listener for extension transaction result
+      });
     })
 
-    //查询交易结果。queryPayInfo 返回的是一个 Promise 对象
-    function funcIntervalQuery() {
 
-    	var options = {
-    		//callback 是交易查询服务器地址,
-    		callback: NebPay.config.mainnetUrl  //在主网查询(默认值)
-    		// callback: NebPay.config.testnetUrl     //在测试网查询
-    	}
+    function listenerFeed(resp) {
+        console.log("listener resp: " + JSON.stringify(resp))
+        var result = resp;
+        onrefreshFeed(result["txhash"])
+    }
 
-    	//queryPayInfo的options参数用来指定查询交易的服务器地址,(如果是主网可以忽略,因为默认服务器是在主网查询)
-    	nebPay.queryPayInfo(serialNumber, options)	//search transaction result from server (result upload to server by app)
-    		.then(function(resp) {
-    			console.log("tx result: " + resp)
-    			var respObject = JSON.parse(resp)
-    			//code==0 交易发送成功,status==交易已被打包上链
-    			if (respObject.code === 0 && respObject.data.status === 1) {
-    				//交易成功,处理后续任务...
-    				console.log("交易成功,处理后续任务...");
-    				clearInterval(intervalQuery)	//清除定时查询
-    			}
-    		})
-    		.catch(function(err) {
-    			console.log(err);
-    		})
+    function onrefreshFeed(txhash) {
+      nasApi.getTransactionReceipt({hash: txhash}).then(function(receipt) {
+            console.log("status = " + receipt.status);
+            if (receipt.status == 1) {
+         	  console.log("交易成功,处理后续任务...");
+              clearInterval(intervalQuery)  //清除定时查询
+              alert("喂养成功");
+            } else {
+              intervalQuery = setTimeout(() => {
+                onrefreshFeed(txhash);
+            }, 1000);    //建议查询频率10-15s,因为星云链出块时间为15s,并且查询服务器限制每分钟最多查询10次。
+            }
+        });
     }
 
 </script>
