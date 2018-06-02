@@ -469,7 +469,15 @@
     function listener(resp) {
         console.log("listener resp: " + JSON.stringify(resp))
         var result = resp;
-        onrefreshClick(result["txhash"])
+
+        var errorCode = JSON.stringify(resp).search("Error");
+	      if (errorCode == 1) {
+	        alert("Error: Transaction rejected by user");
+	      } else {
+	        onrefreshClick(result["txhash"]);
+	      }
+
+        // onrefreshClick(result["txhash"])
     }
 
     function onrefreshClick(txhash) {
@@ -515,7 +523,15 @@
     function listenerFeed(resp) {
         console.log("listener resp: " + JSON.stringify(resp))
         var result = resp;
-        onrefreshFeed(result["txhash"])
+
+        var errorCode = JSON.stringify(resp).search("Error");
+	      if (errorCode == 1) {
+	        alert("Error: Transaction rejected by user");
+	      } else {
+	        onrefreshFeed(result["txhash"])
+	      }
+        
+        // onrefreshFeed(result["txhash"])
     }
 
     function onrefreshFeed(txhash) {
