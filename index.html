@@ -457,9 +457,9 @@
         var callArgs =  "[\"" + key + "\",\"" + content + "\",\"" + getTime +"\"]";  //参数格式为参数数组的JSON字符串
 
         serialNumber = nebPay.call(to, value, callFunction, callArgs, {
-          qrcode: {
-              showQRCode: true
-          },
+          // qrcode: {
+          //     showQRCode: true
+          // },
           callback: NebPay.config.mainnetUrl, //在主网查询(默认值)
           // callback: NebPay.config.testnetUrl,    //在测试网查询
           listener: listener  //set listener for extension transaction result
@@ -502,9 +502,9 @@
         var callArgs =  "[\"" + key +"\",\"" + content + "\",\""+ waterTime + "\"]";  //参数格式为参数数组的JSON字符串
 
         serialNumber = nebPay.call(to, value, callFunction, callArgs, {
-          qrcode: {
-              showQRCode: true
-          },
+          // qrcode: {
+          //     showQRCode: true
+          // },
           callback: NebPay.config.mainnetUrl, //在主网查询(默认值)
           // callback: NebPay.config.testnetUrl,    //在测试网查询
           listener: listenerFeed  //set listener for extension transaction result
